@@ -90,27 +90,36 @@ namespace OpenNETCF
             return validation.AddExceptionInternal(new ArgumentException(paramName ?? UnspecifiedParameterName));
         }
 
-        public static Validation IsNull<T>(this Validation validation, T t)
+        public static Validation IsNull<T>(this Validation validation, T theObject, string message)
             where T : class
         {
-            return validation.IsNull(t, null);
+            if (theObject == null) return validation;
+
+            return validation.AddExceptionInternal(new Exception(message));
         }
 
-        public static Validation IsNull<T>(this Validation validation, T t, string paramName)
+        public static Validation ParameterIsNull<T>(this Validation validation, T theObject, string paramName)
             where T : class
         {
-            if (t == null) return validation;
+            if (theObject == null) return validation;
 
             return validation.AddExceptionInternal(new ArgumentException(paramName ?? UnspecifiedParameterName));
         }
 
-        public static Validation IsNotNull<T>(this Validation validation, T t)
+        public static Validation IsNotNull<T>(this Validation validation, T theObject, string message)
             where T : class
         {
-            return validation.IsNotNull(t, null);
+            if (theObject == null)
+            {
+                return validation.AddExceptionInternal(new Exception(message));
+            }
+            else
+            {
+                return validation;
+            }
         }
 
-        public static Validation IsNotNull<T>(this Validation validation, T theObject, string paramName)
+        public static Validation ParameterIsNotNull<T>(this Validation validation, T theObject, string paramName)
             where T : class
         {
             if (theObject == null)
@@ -145,9 +154,14 @@ namespace OpenNETCF
 
         public static Validation IsTrue(this Validation validation, bool condition)
         {
+            return validation.IsTrue(condition, null);
+        }
+
+        public static Validation IsTrue(this Validation validation, bool condition, string message)
+        {
             if (!condition)
             {
-                return validation.AddExceptionInternal(new ArgumentException());
+                return validation.AddExceptionInternal(new Exception(message));
             }
             else
             {

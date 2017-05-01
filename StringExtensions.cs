@@ -39,6 +39,11 @@ namespace System
             return string.IsNullOrEmpty(s);
         }
 
+        public static bool IsNullOrWhiteSpace(this string s)
+        {
+            return string.IsNullOrWhiteSpace(s);
+        }
+
         public static bool Matches(this string s, string compareTo)
         {
             return string.Compare(s, compareTo) == 0;

@@ -28,6 +28,8 @@ using System.Text;
 using System.Collections;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
+using System.Linq.Expressions;
 
 namespace OpenNETCF
 {
@@ -324,16 +326,33 @@ namespace OpenNETCF
             }
         }
 
+        public static Validation ArgumentIsGreaterThan(this Validation validation, long value, long lowerLimit)
+        {
+            return validation.ArgumentIsGreaterThan(value, lowerLimit, null);
+        }
+
+        public static Validation ArgumentIsGreaterThan(this Validation validation, long value, long lowerLimit, string paramName)
+        {
+            if (value <= lowerLimit)
+            {
+                return validation.AddExceptionInternal(new ArgumentOutOfRangeException(string.Format("{0} must be > {1}, but was {2}", paramName, lowerLimit, value)));
+            }
+            else
+            {
+                return validation;
+            }
+        }
+
         public static Validation IsGreaterThan(this Validation validation, long value, long lowerLimit)
         {
             return validation.IsGreaterThan(value, lowerLimit, null);
         }
 
-        public static Validation IsGreaterThan(this Validation validation, long value, long lowerLimit, string paramName)
+        public static Validation IsGreaterThan(this Validation validation, long value, long lowerLimit, string message)
         {
             if (value <= lowerLimit)
             {
-                return validation.AddExceptionInternal(new ArgumentOutOfRangeException(string.Format("{0} must be > {1}, but was {2}", paramName, lowerLimit, value)));
+                return validation.AddExceptionInternal(new Exception(message));
             }
             else
             {

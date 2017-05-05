@@ -46,6 +46,26 @@ namespace System
             {
                 throw new NotImplementedException();
             }
+
+            public void Restart()
+            {
+                throw new NotImplementedException();
+            }
+
+            public ulong GetTotalMemory()
+            {
+                throw new NotImplementedException();
+            }
+
+            public ulong GetFreeMemory()
+            {
+                throw new NotImplementedException();
+            }
+
+            public decimal GetCpuLoad()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

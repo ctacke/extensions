@@ -16,7 +16,7 @@ namespace System.Runtime.InteropServices.ComTypes
         public static List<string> GetStringList(this IEnumString enumerator)
         {
             Validate.Begin()
-                .IsNotNull(enumerator)
+                .ParameterIsNotNull(enumerator, "enumerator")
                 .Check();
 
             var browserNames = new List<string>();

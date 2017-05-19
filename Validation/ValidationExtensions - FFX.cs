@@ -25,46 +25,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.ComponentModel;
-using OpenNETCF;
+using System.Collections;
+using System.IO;
+using System.Diagnostics;
+using System.Reflection;
+using System.Linq.Expressions;
 
-namespace System
+namespace OpenNETCF
 {
-    public static class EventHandlerExtensions
+    public static partial class ValidationExtensions
     {
-        public static void Fire(this EventHandler h, object sender)
+#if !PCL
+        private static Validation AddExceptionInternal(this Validation validation, Exception exception)
         {
-            var handler = h;
-            if (handler == null) return;
-            handler(sender, EventArgs.Empty);
+            return (validation ?? new Validation()).AddException(exception);
         }
 
-        public static void Fire(this EventHandler h, object sender, EventArgs args)
+        public static Validation FileExists(this Validation validation, string filePath)
         {
-            var handler = h;
-            if (handler == null) return;
-            handler(sender, args);
+            if (!File.Exists(filePath))
+            {
+                return validation.AddExceptionInternal(new FileNotFoundException(string.Format("File '{0}' not found", filePath)));
+            }
+            return  validation;
         }
-
-        public static void Fire<T>(this EventHandler<T> h, object sender, T args) where T : EventArgs
-        {
-            var handler = h;
-            if (handler == null) return;
-            handler(sender, args);
-        }
-
-        public static void Fire<T>(this EventHandler<GenericEventArgs<T>> h, object sender, T args)
-        {
-            var handler = h;
-            if (handler == null) return;
-            handler(sender, new GenericEventArgs<T>(args));
-        }
-
-        public static void Fire(this PropertyChangedEventHandler h, object sender, string propertyName)
-        {
-            var handler = h;
-            if (handler == null) return;
-            handler(sender, new PropertyChangedEventArgs(propertyName));
-        }
+#endif
     }
 }

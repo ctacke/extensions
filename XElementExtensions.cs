@@ -31,7 +31,7 @@ using System.Xml.Serialization;
 
 namespace System.Xml.Linq
 {
-    public static class XElementExtensions
+    public static partial class XElementExtensions
     {
         public static XElement AddChildElement(this XElement e, XElement child)
         {
@@ -134,25 +134,5 @@ namespace System.Xml.Linq
                 get { return new T(); }
             }
         }
-
-#if!PCL
-        public static T XmlDeserialize<T>(this XElement element)
-        {
-            if (element == null) return default(T);
-
-            return (element.ToString()).DeserializeFromXml<T>();
-        }
-#endif
-#if !(WINDOWS_PHONE || PCL)
-        public static XmlNode AsXmlNode(this XElement element)
-        {
-            using (XmlReader xmlReader = element.CreateReader())
-            {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(xmlReader);
-                return xmlDoc;
-            }
-        }
-#endif
     }
 }

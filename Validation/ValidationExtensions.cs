@@ -33,7 +33,7 @@ using System.Linq.Expressions;
 
 namespace OpenNETCF
 {
-    public static class ValidationExtensions
+    public static partial class ValidationExtensions
     {
         public const string UnspecifiedParameterName = "{unspecified}";
 
@@ -438,17 +438,6 @@ namespace OpenNETCF
 
             return validation;
         }
-
-#if !PCL
-        public static Validation FileExists(this Validation validation, string filePath)
-        {
-            if (!File.Exists(filePath))
-            {
-                return validation.AddExceptionInternal(new FileNotFoundException(string.Format("File '{0}' not found", filePath)));
-            }
-            return  validation;
-        }
-#endif
     }
 
     public sealed class MultiException

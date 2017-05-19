@@ -51,11 +51,14 @@ namespace System
 
         public static bool Matches(this string s, string compareTo, bool ignoreCase)
         {
-#if WINDOWS_PHONE || XAMARIN
-            return string.Compare(s, compareTo, StringComparison.CurrentCultureIgnoreCase) == 0;
-#else
-            return string.Compare(s, compareTo, ignoreCase) == 0;
-#endif
+            if (ignoreCase)
+            {
+                return string.Compare(s, compareTo, StringComparison.CurrentCultureIgnoreCase) == 0;
+            }
+            else
+            {
+                return string.Compare(s, compareTo, StringComparison.CurrentCulture) == 0;
+            }
         }
 
         public static string CropAtLast(this string s, char character)
@@ -94,50 +97,6 @@ namespace System
             return XElement.Parse(objectInstance.SerializeToXml());
         }
 
-#if !XAMARIN
-        public static T DeserializeFromXElement<T>(this XElement objectData)
-        {
-            return (T)objectData.DeserializeFromXElement(typeof(T));
-        }
-
-        public static T DeserializeFromXml<T>(this string objectData)
-        {
-            return (T)DeserializeFromXml(objectData, typeof(T));
-        }
-
-        public static object DeserializeFromXml(this string objectData, Type type)
-        {
-            var serializer = new XmlSerializer(type);
-            object result;
-
-            using (var reader = new NamespaceIgnoringReader(objectData))
-            {
-                result = serializer.Deserialize(reader);
-            }
-
-            return result;
-        }
-
-        public static object DeserializeFromXElement(this XElement objectData, Type type)
-        {
-            var serializer = new XmlSerializer(type);
-
-            XElement source;
-            var name = type.Name;
-
-            if (objectData.Name == name)
-            {
-                source = objectData;
-            }
-            else
-            {
-                source = objectData.Element(name);
-            }
-
-            return source.ToString().DeserializeFromXml(type);
-        }
-#endif
-
 #if!WindowsCE
         public static string ToCamelCase(this string source)
         {
@@ -165,41 +124,4 @@ namespace System
         }
 #endif
     }
-#if !PCL
-    internal class NamespaceIgnoringReader : XmlTextReader
-    {
-        public NamespaceIgnoringReader(string data)
-            : base(new StringReader(data))
-        {
-        }
-
-        public NamespaceIgnoringReader(TextReader reader)
-            : base(reader)
-        {
-        }
-
-        public override string NamespaceURI
-        {
-            get { return string.Empty; }
-        }
-    }
-
-    internal class NamespaceIgnoringWriter : XmlTextWriter
-    {
-        public NamespaceIgnoringWriter(StringBuilder sb)
-            : base(new StringWriter(sb))
-        {
-        }
-
-        public NamespaceIgnoringWriter(TextWriter writer)
-            : base(writer)
-        {
-        }
-
-        public override void WriteStartElement(string prefix, string localName, string ns)
-        {
-            base.WriteStartElement(prefix, localName, string.Empty);
-        }
-    }
-#endif
 }

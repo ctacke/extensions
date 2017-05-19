@@ -1,4 +1,4 @@
-﻿// -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------
 // LICENSE INFORMATION
 //
 // - This software is licensed under the MIT shared source license.
@@ -25,25 +25,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.Specialized;
+using System.IO;
+using System.Diagnostics;
+using System.Xml.Serialization;
 
-namespace OpenNETCF
+namespace System.Xml.Linq
 {
-    public static class BitVectorExtensions
+    public static partial class XElementExtensions
     {
-        public static bool Channel(this BitVector8 data, int channel)
-        {
-            return ((data & (1 << channel)) == (uint)(1 << channel));
-        }
 
-        public static bool Channel(this BitVector16 data, int channel)
+#if!PCL
+        public static T XmlDeserialize<T>(this XElement element)
         {
-            return ((data.Data & (1 << channel)) == (uint)(1 << channel));
-        }
+            if (element == null) return default(T);
 
-        public static bool Channel(this BitVector32 data, int channel)
-        {
-            return ((data.Data & (1 << channel)) == (uint)(1 << channel));
+            return (element.ToString()).DeserializeFromXml<T>();
         }
+#endif
+#if !(WINDOWS_PHONE || PCL)
+        public static XmlNode AsXmlNode(this XElement element)
+        {
+            using (XmlReader xmlReader = element.CreateReader())
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(xmlReader);
+                return xmlDoc;
+            }
+        }
+#endif
     }
 }

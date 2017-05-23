@@ -121,6 +121,24 @@ namespace OpenNETCF
             }
         }
 
+        public static Validation ParameterIsNotNullOrWhitespace(this Validation validation, string theObject, string paramName)
+        {
+            if (theObject.IsNullOrWhiteSpace())
+            {
+                return validation.AddExceptionInternal(new ArgumentNullException(paramName ?? UnspecifiedParameterName));
+            }
+            else
+            {
+                return validation;
+            }
+        }
+
+        public static Validation ParameterIsNotNull<T>(this Validation validation, T theObject)
+            where T : class
+        {
+            return validation.ParameterIsNotNull(theObject, null);
+        }
+
         public static Validation ParameterIsNotNull<T>(this Validation validation, T theObject, string paramName)
             where T : class
         {

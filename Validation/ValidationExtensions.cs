@@ -153,7 +153,6 @@ namespace OpenNETCF
             }
         }
 
-
         public static Validation IsTrue(this Validation validation, bool condition)
         {
             return validation.IsTrue(condition, null);
@@ -171,16 +170,49 @@ namespace OpenNETCF
             }
         }
 
+        public static Validation IsTrueWhen(this Validation validation, bool whenCondition, bool checkCondition)
+        {
+            return validation.IsTrueWhen(whenCondition, checkCondition, null);
+        }
+
+        public static Validation IsTrueWhen(this Validation validation, bool whenCondition, bool checkCondition, string message)
+        {
+            if(whenCondition)
+            {
+                return validation.IsTrue(checkCondition, message);
+            }
+            return validation;
+        }
+
         public static Validation IsFalse(this Validation validation, bool condition)
+        {
+            return validation.IsFalse(condition, null);
+        }
+
+        public static Validation IsFalse(this Validation validation, bool condition, string message)
         {
             if (condition)
             {
-                return validation.AddExceptionInternal(new ArgumentException());
+                return validation.AddExceptionInternal(new Exception(message));
             }
             else
             {
                 return validation;
             }
+        }
+
+        public static Validation IsFalseWhen(this Validation validation, bool whenCondition, bool checkCondition)
+        {
+            return validation.IsFalseWhen(whenCondition, checkCondition, null);
+        }
+
+        public static Validation IsFalseWhen(this Validation validation, bool whenCondition, bool checkCondition, string message)
+        {
+            if (whenCondition)
+            {
+                return validation.IsFalse(checkCondition, message);
+            }
+            return validation;
         }
 
         public static Validation IsNotNullOrEmpty(this Validation validation, string item)

@@ -66,8 +66,6 @@
     <Compile Include="BasicBinarySerializer.cs" />
     <Compile Include="EnumExtensions.cs" />
     <Compile Include="IEnumStringExtensions.cs" />
-    <Compile Include="LocalDevice_Mono.cs" />
-    <Compile Include="LocalDevice_Monotouch.cs" />
     <Compile Include="Properties\OpenNETCF.Extensions.Version.cs" />
     <Compile Include="PropertyComparer - FFx.cs" />
     <Compile Include="StringExtensions - FFx.cs" />
@@ -75,19 +73,6 @@
     <Compile Include="TcpSocketServer.cs" />
     <Compile Include="TypeExtensions.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
-    <Compile Include="LocalDevice.cs" />
-    <Compile Include="LocalDevice_CE.cs">
-      <DependentUpon>LocalDevice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LocalDevice_Desktop.cs">
-      <DependentUpon>LocalDevice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LocalDevice_Interface.cs">
-      <DependentUpon>LocalDevice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LocalDevice_Phone.cs">
-      <DependentUpon>LocalDevice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="REST\CredentialCache_Phone.cs" />
     <Compile Include="REST\DigestRestConnector.cs" />

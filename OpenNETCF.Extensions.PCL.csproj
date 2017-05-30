@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="AsyncAutoResetEvent.cs" />
+    <Compile Include="AsyncHelper.cs" />
     <Compile Include="BasicBinarySerializer.cs" />
     <Compile Include="BasicSerializer.cs" />
     <Compile Include="BasicXmlSerializer.cs" />

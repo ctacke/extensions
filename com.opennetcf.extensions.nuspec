@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>com.opennetcf.extensions.ffx</id>
-        <version>1.0.17145.0</version>
+        <version>1.0.17150.0</version>
         <title>OpenNETCF Extensions for the Full .NET Framework</title>
         <authors>Chris Tacke</authors>
         <projectUrl>https://bitbucket.org/opennetcf/shared</projectUrl>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>opennetcf-extensions-standard</id>
+        <version>1.0.17160.0</version>
+        <title>OpenNETCF Extensions for .NET Standard</title>
+        <authors>Chris Tacke</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>OpenNETCF's Extensions library for .NET Standard</description>
+    </metadata>
+  <files>
+    <file src=".\bin\Standard\Release\OpenNETCF.Extensions.dll" target="lib\netstandard1.1" />
+  </files>
+</package>

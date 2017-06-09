@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Xml.Linq;
 
-#if !PCL
+#if !(PCL || STANDARD)
 namespace System.Runtime.Serialization
 {
     // | ONCF | [version] | [hash] | [type] | data |

@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Xml.Linq;
 using System.Diagnostics;
-#if !PCL
+#if !(PCL || STANDARD)
 namespace System.Runtime.Serialization
 {
     public class BasicXmlSerializer : BasicSerializer<XElement>

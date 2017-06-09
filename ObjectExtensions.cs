@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace System
 {
+#if !STANDARD
     public static class ObjectExtensions
     {
         public static string XmlSerializeToString(this object objectInstance)
@@ -40,4 +41,5 @@ namespace System
             return result;
         }
     }
+#endif
 }

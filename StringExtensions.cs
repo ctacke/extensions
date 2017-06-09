@@ -69,6 +69,7 @@ namespace System
             return s.Substring(0, index);
         }
 
+#if !STANDARD
         public static string SerializeToXml(this object objectInstance)
         {
             var serializer = new XmlSerializer(objectInstance.GetType());
@@ -91,11 +92,11 @@ namespace System
 
             return sb.ToString();
         }
-
         public static XElement SerializeToXElement(this object objectInstance)
         {
             return XElement.Parse(objectInstance.SerializeToXml());
         }
+#endif
 
 #if!WindowsCE
         public static string ToCamelCase(this string source)

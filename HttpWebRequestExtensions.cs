@@ -5,6 +5,7 @@ using System.IO;
 
 namespace System.Net
 {
+
     public static class HttpWebRequestExtensions
     {
         public static HttpWebResponse GetResponse(this HttpWebRequest request, bool throwOnError)

@@ -18,10 +18,14 @@
     <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <DeployDirPrefix>\</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -51,14 +55,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="OpenNETCF.Net, Version=2.3.0.11010, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\thirdparty\OpenNETCF\CF\OpenNETCF.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenNETCF.WindowsCE.Messaging, Version=2.3.12283.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\thirdparty\OpenNETCF\CF\OpenNETCF.WindowsCE.Messaging.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -84,7 +80,7 @@
     <Compile Include="DisposableBase.cs" />
     <Compile Include="DoNotSerializeAttribute.cs" />
     <Compile Include="EnumExtensions.cs" />
-    <Compile Include="FormsExtensions.cs" />
+    <Compile Include="FormsExtensions - CF.cs" />
     <Compile Include="MovingAverage.cs" />
     <Compile Include="SafeCollections\SafeDictionary.cs" />
     <Compile Include="SafeCollections\SafeEnumerable.cs" />
@@ -94,16 +90,13 @@
     <Compile Include="Metrics.cs" />
     <Compile Include="Parsers.cs" />
     <Compile Include="TypeExtensions.cs" />
-    <Compile Include="WaitHandleExtensions.cs" />
+    <Compile Include="WaitHandleExtensions - CF.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="DirectoryInfoExtensions.cs" />
     <Compile Include="EncodingExtensions.cs" />
     <Compile Include="EventHandlerExtensions.cs" />
     <Compile Include="GenericEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="REST\CredentialCache_Phone.cs" />
-    <Compile Include="REST\DigestRestConnector.cs" />
-    <Compile Include="REST\RestConnector.cs" />
     <Compile Include="Switch.cs" />
     <Compile Include="Validation\Validate.cs" />
     <Compile Include="Validation\Validation.cs" />

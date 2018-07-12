@@ -1,4 +1,4 @@
-﻿// -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------
 // LICENSE INFORMATION
 //
 // - This software is licensed under the MIT shared source license.
@@ -29,7 +29,6 @@ using System.Collections;
 using System.IO;
 using System.Diagnostics;
 using System.Reflection;
-using System.Linq.Expressions;
 
 namespace OpenNETCF
 {

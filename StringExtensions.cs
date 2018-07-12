@@ -41,7 +41,11 @@ namespace System
 
         public static bool IsNullOrWhiteSpace(this string s)
         {
+#if WindowsCE
+            return s == null || string.IsNullOrEmpty(s.Trim());
+#else
             return string.IsNullOrWhiteSpace(s);
+#endif
         }
 
         public static bool Matches(this string s, string compareTo)

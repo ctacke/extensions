@@ -144,7 +144,11 @@ namespace System.Collections.Generic
         {
             get 
             {
+#if WindowsCE
+                if (Monitor.TryEnter(m_syncRoot))
+#else
                 if( Monitor.TryEnter(m_syncRoot,5000))
+#endif
                 {
                     try
                     {

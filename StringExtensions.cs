@@ -69,7 +69,7 @@ namespace System
             return s.Substring(0, index);
         }
 
-#if !STANDARD
+#if !(STANDARD || CORE)
         public static string SerializeToXml(this object objectInstance)
         {
             var serializer = new XmlSerializer(objectInstance.GetType());

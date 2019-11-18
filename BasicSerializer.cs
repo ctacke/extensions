@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace System.Runtime.Serialization
 {
-#if !(PCL || STANDARD)
+#if !(PCL || STANDARD || CORE)
     public abstract class BasicSerializer<T>
     {
         public abstract T Serialize(object instance, bool includeNonPublicProperties);

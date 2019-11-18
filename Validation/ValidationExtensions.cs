@@ -37,10 +37,12 @@ namespace OpenNETCF
     {
         public const string UnspecifiedParameterName = "{unspecified}";
 
+#if !CORE
         private static Validation AddExceptionInternal(this Validation validation, Exception exception)
         {
             return (validation ?? new Validation()).AddException(exception);
         }
+#endif
 
         public static Validation Check(this Validation validation)
         {

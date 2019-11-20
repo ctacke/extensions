@@ -110,12 +110,18 @@ namespace OpenNETCF
             return validation.AddExceptionInternal(new ArgumentException(paramName ?? UnspecifiedParameterName));
         }
 
+        public static Validation IsNotNull<T>(this Validation validation, T theObject)
+            where T : class
+        {
+            return IsNotNull(validation, theObject, null);
+        }
+
         public static Validation IsNotNull<T>(this Validation validation, T theObject, string message)
             where T : class
         {
             if (theObject == null)
             {
-                return validation.AddExceptionInternal(new Exception(message));
+                return validation.AddExceptionInternal(new ArgumentException(message ?? "value cannot be null"));
             }
             else
             {

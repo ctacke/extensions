@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenNETCF.Extensions.Core", "OpenNETCF.Extensions.Core.csproj", "{057D896D-B950-4547-8286-E7C0B2DE7518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenNETCF.Extensions.Core", "OpenNETCF.Extensions.Core.csproj", "{057D896D-B950-4547-8286-E7C0B2DE7518}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenNETCF.ORM.SQLite.Core", "..\ORM\SQLite\OpenNETCF.ORM.SQLite.Core\OpenNETCF.ORM.SQLite.Core.csproj", "{F7D1BF91-97BF-42BB-AEC5-4389EFD60E51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{057D896D-B950-4547-8286-E7C0B2DE7518}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{057D896D-B950-4547-8286-E7C0B2DE7518}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{057D896D-B950-4547-8286-E7C0B2DE7518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D1BF91-97BF-42BB-AEC5-4389EFD60E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D1BF91-97BF-42BB-AEC5-4389EFD60E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D1BF91-97BF-42BB-AEC5-4389EFD60E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D1BF91-97BF-42BB-AEC5-4389EFD60E51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

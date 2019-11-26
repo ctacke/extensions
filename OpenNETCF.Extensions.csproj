@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Product>OpenNETCF Extensions</Product>
+    <Copyright>©2016-2019</Copyright>
+    <Authors>Chris Tacke</Authors>
+    <Company>Tacke Consulting</Company>
+    <Version>1.0.19330</Version>
+    <RootNamespace>OpenNETCF.Extensions</RootNamespace>
+    <AssemblyName>OpenNETCF.Extensions</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Test\**" />
+    <EmbeddedResource Remove="Test\**" />
+    <None Remove="Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ControlExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="com.opennetcf.extensions.nuspec" />
+    <None Remove="com.opennetcf.extensions.pcl.nuspec" />
+    <None Remove="com.opennetcf.extensions.standard.nuspec" />
+    <None Remove="LICENSE" />
+    <None Remove="NuGetReferenceHintPathRewrite.targets" />
+    <None Remove="README.md" />
+  </ItemGroup>
+</Project>

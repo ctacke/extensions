@@ -23,26 +23,14 @@
 // -------------------------------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections;
-using System.IO;
 using System.Diagnostics;
-using System.Reflection;
-using System.Linq.Expressions;
+using System.Linq;
 
 namespace OpenNETCF
 {
     public static partial class ValidationExtensions
     {
         public const string UnspecifiedParameterName = "{unspecified}";
-
-#if !CORE
-        private static Validation AddExceptionInternal(this Validation validation, Exception exception)
-        {
-            return (validation ?? new Validation()).AddException(exception);
-        }
-#endif
 
         public static Validation Check(this Validation validation)
         {

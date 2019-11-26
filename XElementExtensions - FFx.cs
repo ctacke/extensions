@@ -21,13 +21,6 @@
 // WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 // -------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Diagnostics;
-using System.Xml.Serialization;
 
 namespace System.Xml.Linq
 {
@@ -39,7 +32,7 @@ namespace System.Xml.Linq
         {
             if (element == null) return default(T);
 
-            return (element.ToString()).DeserializeFromXml<T>();
+            return element.ToString().DeserializeFromXml<T>();
         }
 #endif
 #if !(WINDOWS_PHONE || PCL)

@@ -21,18 +21,14 @@
 // WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 // -------------------------------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.IO;
-using System.Xml.Serialization;
-using System.Xml.Linq;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace System
 {
-    public static class StringExtensions
+    public static partial class StringExtensions
     {
         public static bool IsNullOrEmpty(this string s)
         {
